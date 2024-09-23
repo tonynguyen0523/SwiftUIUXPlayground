@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ImageTitleHeaderView: View {
     var title: String
+    var image: UIImage?
     var defaultHeight = 300.0
     var maxHeight = 500.0
     
@@ -17,10 +18,12 @@ struct ImageTitleHeaderView: View {
     var body: some View {
         ZStack {
             GeometryReader { gr in
-                Image(uiImage: UIImage(named: "rayimage")!)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: gr.size.width, height: headerHeight)
+                if let uiImage = image{
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: gr.size.width, height: headerHeight)
+                }
                 
                 Rectangle()
                     .fill(.black.opacity(0.5))
@@ -70,5 +73,5 @@ struct ImageTitleHeaderView: View {
 }
 
 #Preview {
-    ImageTitleHeaderView(title: "Epic Moments Productions")
+    ImageTitleHeaderView(title: "Epic Moments Productions", image: UIImage(named: "rayimage"))
 }

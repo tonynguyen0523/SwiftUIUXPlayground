@@ -251,59 +251,59 @@ struct InfoCell: View {
   }
 }
 
-//#Preview {
-//  struct Preview: View {
-//    @State
-//    var selection = 0
-//    func header() -> some View {
-////      TabView {
-////        Color.red.tag(0)
-////        Color.green.tag(1)
-////        Color.blue.tag(2)
-////      }
-////      .tabViewStyle(.page)
-//      ZStack {
-//        Color.black
-//        Image("rayimage", bundle: Bundle(identifier:"com.twny.PTUIUX"))
-//          .resizable()
-//          .scaledToFit()
+#Preview {
+  struct Preview: View {
+    @State
+    var selection = 0
+    func header() -> some View {
+//      TabView {
+//        Color.red.tag(0)
+//        Color.green.tag(1)
+//        Color.blue.tag(2)
 //      }
-//    }
-//    var body: some View {
-//      ZStack {
-//        Color.black
-//          YelpDetailScrollingScreen(
-//          header: header,
-//          headerHeight: 250,
-//          headerMinHeight: 150,
-//          showsIndicators: false
-//        ) {
-//          VStack {
-//            InfoCell(title: "Type", description: "Ground, Rock")
-//            InfoCell(title: "Abilities", description: "Lightning Rod or Rock Head, Reckless (Hidden Ability)")
-//            InfoCell(title: "Gender Ratio", description: "50% male,50% female")
-//            InfoCell(title: "Catch Rate", description: "60%")
-//            InfoCell(title: "Egg Group", description: "Monster and Field")
-//            InfoCell(title: "Hatch time", description: "20 cycles")
-//            InfoCell(title: "Leveling rate", description: "Slow")
-//            InfoCell(title: "Weight", description: "Big Boi")
-//            InfoCell(title: "Color", description: "Gray")
-//            InfoCell(title: "Description", description: "Rhydon is a large, gray, bipedal Pokémon with features similar to both dinosaurs and rhinoceroses. It has narrow, red eyes and two fangs in its upper jaw. On the tip of Rhydon's snout is a cream-colored horn, which is smaller on a female than on a male.")
+//      .tabViewStyle(.page)
+      ZStack {
+        Color.black
+        Image("rayimage", bundle: Bundle(identifier:"com.twny.PTUIUX"))
+          .resizable()
+          .scaledToFit()
+      }
+    }
+    var body: some View {
+      ZStack {
+        Color.black
+          YelpDetailScrollingScreen(
+          header: header,
+          headerHeight: 250,
+          headerMinHeight: 150,
+          showsIndicators: false
+        ) {
+          VStack {
+            InfoCell(title: "Type", description: "Ground, Rock")
+            InfoCell(title: "Abilities", description: "Lightning Rod or Rock Head, Reckless (Hidden Ability)")
+            InfoCell(title: "Gender Ratio", description: "50% male,50% female")
+            InfoCell(title: "Catch Rate", description: "60%")
+            InfoCell(title: "Egg Group", description: "Monster and Field")
+            InfoCell(title: "Hatch time", description: "20 cycles")
+            InfoCell(title: "Leveling rate", description: "Slow")
+            InfoCell(title: "Weight", description: "Big Boi")
+            InfoCell(title: "Color", description: "Gray")
+            InfoCell(title: "Description", description: "Rhydon is a large, gray, bipedal Pokémon with features similar to both dinosaurs and rhinoceroses. It has narrow, red eyes and two fangs in its upper jaw. On the tip of Rhydon's snout is a cream-colored horn, which is smaller on a female than on a male.")
+          }
+          .background(.white)
+//          LazyVStack {
+//            ForEach(1...100, id: \.self) {
+//              Text("\($0)")
+//                .foregroundStyle(.black)
+//            }
 //          }
-//          .background(.white)
-////          LazyVStack {
-////            ForEach(1...100, id: \.self) {
-////              Text("\($0)")
-////                .foregroundStyle(.black)
-////            }
-////          }
-//        }
-//      }
-//    }
-//  }
-//  return NavigationView {
-//    Preview()
-//  }
-//  .accentColor(.white)
-//  .colorScheme(.dark)
-//}
+        }
+      }
+    }
+  }
+  return NavigationView {
+    Preview()
+  }
+  .accentColor(.white)
+  .colorScheme(.dark)
+}
