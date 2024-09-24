@@ -31,77 +31,80 @@ struct ScrollingItemDetailScreen<Content: View>: View {
     }
     
     var body: some View {
-        ZStack(alignment: .top) {
-            ScrollView {
-                ZStack(alignment: .top) {
-                    ScrollViewTracker()
-                    
-                    VStack(spacing: 0) {
-                        ImageTitleHeaderView(
-                            title: title,
-                            image: headerImage,
-                            defaultHeight: headerHeight
-                        )
-                        .overlay {
-                            Color.black.opacity(1 - (headerVisibleRatio))
-                        }
+        GeometryReader { gr in
+            ZStack(alignment: .top) {
+                ScrollView {
+                    ZStack(alignment: .top) {
+                        ScrollViewTracker()
                         
-                        content()
+                        VStack(spacing: 0) {
+                            ImageTitleHeaderView(
+                                title: title,
+                                image: headerImage,
+                                defaultHeight: headerHeight
+                            )
+                            .overlay {
+                                Color.black.opacity(1 - (headerVisibleRatio))
+                            }
+                            
+                            content()
+                        }
                     }
                 }
+                .withTracker { offset in
+                    scrollOffset = offset
+                }
+                
+                Rectangle()
+                    .fill(.black.opacity(calculateTopbarOpacity(topbarHeight: gr.safeAreaInsets.top)))
+                    .shadow(color: .black.opacity(calculateTopbarOpacity(topbarHeight: gr.safeAreaInsets.top)), radius: 2, x: 0, y: 1)
+                    .frame(width: .infinity, height: gr.safeAreaInsets.top)
             }
-            .withTracker { offset in
-                scrollOffset = offset
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button(action: {
+                        // Do something
+                    }, label: {
+                        Image(systemName: "arrow.left")
+                            .foregroundStyle(.white)
+                    })
+                }
+                
+                ToolbarItem(placement: .principal) {
+                    Text(title)
+                        .font(.headline.bold())
+                        .fontDesign(.rounded)
+                        .foregroundStyle(.white)
+                        .lineLimit(1)
+                        .opacity(headerVisibleRatio < 0.5 ? 1.0 : 0.0)
+                }
+                
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button(action: {
+                        // Do something
+                    }, label: {
+                        Image(systemName: "heart")
+                            .foregroundStyle(.white)
+                    })
+                }
+                
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button(action: {
+                        // Do something
+                    }, label: {
+                        Image(systemName: "square.and.arrow.up")
+                            .foregroundStyle(.white)
+                    })
+                }
             }
-            
-            Rectangle()
-                .fill(.black.opacity(calculateTopbarOpacity()))
-                .frame(width: .infinity, height: 100.0)
+            .ignoresSafeArea(edges: .vertical)
+            .toolbar(.visible, for: .navigationBar)
+            .toolbarBackground(.hidden, for: .navigationBar)
         }
-        .toolbar {
-            ToolbarItem(placement: .topBarLeading) {
-                Button(action: {
-                    // Do something
-                }, label: {
-                    Image(systemName: "arrow.left")
-                        .foregroundStyle(.white)
-                })
-            }
-            
-            ToolbarItem(placement: .principal) {
-                Text(title)
-                    .font(.headline.bold())
-                    .fontDesign(.rounded)
-                    .foregroundStyle(.white)
-                    .lineLimit(1)
-                    .opacity(headerVisibleRatio < 0.5 ? 1.0 : 0.0)
-            }
-            
-            ToolbarItem(placement: .topBarTrailing) {
-                Button(action: {
-                    // Do something
-                }, label: {
-                    Image(systemName: "heart")
-                        .foregroundStyle(.white)
-                })
-            }
-            
-            ToolbarItem(placement: .topBarTrailing) {
-                Button(action: {
-                    // Do something
-                }, label: {
-                    Image(systemName: "square.and.arrow.up")
-                        .foregroundStyle(.white)
-                })
-            }
-        }
-        .ignoresSafeArea(edges: .vertical)
-        .toolbar(.visible, for: .navigationBar)
-        .toolbarBackground(.hidden, for: .navigationBar)
     }
     
-    func calculateTopbarOpacity() -> CGFloat {
-        let updatedHeaderHeight = headerHeight - 100
+    func calculateTopbarOpacity(topbarHeight: CGFloat) -> CGFloat {
+        let updatedHeaderHeight = headerHeight - topbarHeight
         return 1 - (max(0, (updatedHeaderHeight + scrollOffset.y) / (updatedHeaderHeight)))
     }
 }
