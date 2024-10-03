@@ -33,7 +33,8 @@ struct ScrollingItemDetailScreen<Content: View>: View {
     var body: some View {
         GeometryReader { gr in
             ZStack(alignment: .top) {
-                ScrollView {
+                // TODO: Fix drag down not sticking to under header. Looks like its staying under the image since the image is being streched more than the header.
+                ScrollView(showsIndicators: false) {
                     ZStack(alignment: .top) {
                         ScrollViewTracker()
                         
@@ -55,9 +56,10 @@ struct ScrollingItemDetailScreen<Content: View>: View {
                     scrollOffset = offset
                 }
                 
+                // TODO: Fix shadow when pulling down
                 Rectangle()
                     .fill(.black.opacity(calculateTopbarOpacity(topbarHeight: gr.safeAreaInsets.top)))
-                    .shadow(color: .black.opacity(calculateTopbarOpacity(topbarHeight: gr.safeAreaInsets.top)), radius: 2, x: 0, y: 1)
+                    .shadow(color: .clear.opacity(calculateTopbarOpacity(topbarHeight: gr.safeAreaInsets.top)), radius: 1, x: 0, y: 1)
                     .frame(width: .infinity, height: gr.safeAreaInsets.top)
             }
             .toolbar {
@@ -114,7 +116,7 @@ struct ScrollingItemDetailScreen<Content: View>: View {
         GeometryReader { proxy in
             ScrollingItemDetailScreen(
                 title: "Empower Excellence Employee Development Day",
-                headerImage: UIImage(named: "rayimage"),
+                headerImage: UIImage(named: ""),
                 headerHeight: 300.0
             ) {
                 VStack {
