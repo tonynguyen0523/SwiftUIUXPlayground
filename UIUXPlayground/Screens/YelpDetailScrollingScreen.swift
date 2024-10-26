@@ -214,9 +214,9 @@ private extension View {
 }
 
 private extension ScrollView {
-  func withOffsetTracking(
+    func withOffsetTracking(
     action: @escaping (_ offset: CGPoint) -> Void
-  ) -> some View {
+    ) -> some View {
     self.coordinateSpace(name: ScrollOffsetNamespace.namespace)
       .onPreferenceChange(ScrollOffsetPreferenceKey.self, perform: action)
   }

@@ -19,16 +19,16 @@ struct ImageTitleHeaderView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(width: proxy.size.width, height: proxy.size.height)
-                    
-                    Rectangle()
-                        .fill(Color.black.opacity(0.55))
-                    
-                    Text(title)
-                        .font(.title.bold())
-                        .foregroundStyle(.white)
-                        .padding(20)
-                        .frame(width: proxy.size.width, alignment: .bottomLeading)
                 }
+                
+                Rectangle()
+                    .fill(Color.black.opacity(0.55))
+                
+                Text(title)
+                    .font(.title.bold())
+                    .foregroundStyle(.white)
+                    .padding(20)
+                    .frame(width: proxy.size.width, alignment: .bottomLeading)
             }
         }
     }
