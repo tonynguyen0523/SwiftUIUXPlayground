@@ -9,11 +9,7 @@ import SwiftUI
 
 struct ImageTitleHeaderView: View {
     var title: String
-    var image: UIImage?
-//    @Binding var defaultHeight: CGFloat
-    var maxHeight = 500.0
-    
-//    @State private var headerHeight: CGFloat = .zero
+    var image: UIImage?    
     
     var body: some View {
         GeometryReader { proxy in
