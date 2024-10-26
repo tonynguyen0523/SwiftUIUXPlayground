@@ -10,65 +10,31 @@ import SwiftUI
 struct ImageTitleHeaderView: View {
     var title: String
     var image: UIImage?
-    var defaultHeight = 300.0
+//    @Binding var defaultHeight: CGFloat
     var maxHeight = 500.0
     
-    @State private var headerHeight: CGFloat = .zero
+//    @State private var headerHeight: CGFloat = .zero
     
     var body: some View {
-        ZStack {
-            GeometryReader { gr in
+        GeometryReader { proxy in
+            ZStack(alignment: .bottom) {
                 if let uiImage = image{
                     Image(uiImage: uiImage)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
-                        .frame(width: gr.size.width, height: headerHeight)
-                }
-                
-                Rectangle()
-                    .fill(.black.opacity(0.5))
-                                
-                VStack(spacing: 0) {
-                    Rectangle()
-                        .fill(.clear)
-                        .frame(width: .infinity, height: defaultHeight / 2)
+                        .frame(width: proxy.size.width, height: proxy.size.height)
                     
+                    Rectangle()
+                        .fill(Color.black.opacity(0.55))
                     
                     Text(title)
                         .font(.title.bold())
                         .foregroundStyle(.white)
                         .padding(20)
-                        .background(
-                            GeometryReader { gr in
-                                Color.clear.onAppear {
-                                    updateHeaderHeight(proxy: gr)
-                                }
-                            }
-                        )
-                        .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
-                        .frame(maxWidth: .infinity, minHeight: defaultHeight / 2, alignment: .bottomLeading)
+                        .frame(width: proxy.size.width, alignment: .bottomLeading)
                 }
-                
             }
-            .background(.gray.opacity(0.5))
-            .frame(height: headerHeight)
         }
-    }
-    
-    private func updateHeaderHeight(proxy: GeometryProxy) {
-        let splitHeight = defaultHeight / 2
-        var textHeight = proxy.size.height
-        
-        if textHeight < splitHeight {
-            textHeight = splitHeight
-        }
-        
-        var updatedHeaderHeight = textHeight + splitHeight
-        if updatedHeaderHeight > maxHeight {
-            updatedHeaderHeight = maxHeight
-        }
-        
-        headerHeight = updatedHeaderHeight
     }
 }
 

@@ -33,19 +33,25 @@ struct ScrollingItemDetailScreen<Content: View>: View {
     var body: some View {
         GeometryReader { gr in
             ZStack(alignment: .top) {
-                ScrollView {
+                ImageTitleHeaderView(
+                    title: "\(title)",
+                    image: headerImage
+                )
+                .frame(height: getHeaderHeight())
+                .overlay {
+                    Color.black.opacity(1 - (headerVisibleRatio))
+                }
+                .offset(y: scrollOffset.y > 0 ? 0 : scrollOffset.y)
+                
+                ScrollView(showsIndicators: false) {
                     ZStack(alignment: .top) {
                         ScrollViewTracker()
                         
                         VStack(spacing: 0) {
-                            ImageTitleHeaderView(
-                                title: title,
-                                image: headerImage,
-                                defaultHeight: headerHeight
-                            )
-                            .overlay {
-                                Color.black.opacity(1 - (headerVisibleRatio))
-                            }
+                            // Spacing to offset scrollview with header height
+                            Rectangle()
+                                .fill(.clear)
+                                .frame(height: headerHeight)
                             
                             content()
                         }
@@ -55,9 +61,10 @@ struct ScrollingItemDetailScreen<Content: View>: View {
                     scrollOffset = offset
                 }
                 
+                // TODO: Fix toolbar shadow opacity
                 Rectangle()
-                    .fill(.black.opacity(calculateTopbarOpacity(topbarHeight: gr.safeAreaInsets.top)))
-                    .shadow(color: .black.opacity(calculateTopbarOpacity(topbarHeight: gr.safeAreaInsets.top)), radius: 2, x: 0, y: 1)
+                    .fill(.blue.opacity(calculateTopbarOpacity(topbarHeight: gr.safeAreaInsets.top)))
+                    .shadow(color: .gray.opacity(0.5), radius: 1, x: 0, y: 2)
                     .frame(width: .infinity, height: gr.safeAreaInsets.top)
             }
             .toolbar {
@@ -76,7 +83,7 @@ struct ScrollingItemDetailScreen<Content: View>: View {
                         .fontDesign(.rounded)
                         .foregroundStyle(.white)
                         .lineLimit(1)
-                        .opacity(headerVisibleRatio < 0.5 ? 1.0 : 0.0)
+                        .opacity(headerVisibleRatio <= 0.4 ? 1.0 : 0.0)
                 }
                 
                 ToolbarItem(placement: .topBarTrailing) {
@@ -104,8 +111,20 @@ struct ScrollingItemDetailScreen<Content: View>: View {
     }
     
     func calculateTopbarOpacity(topbarHeight: CGFloat) -> CGFloat {
+        if scrollOffset.y >= 0 {
+            return 0
+        }
+        
         let updatedHeaderHeight = headerHeight - topbarHeight
         return 1 - (max(0, (updatedHeaderHeight + scrollOffset.y) / (updatedHeaderHeight)))
+    }
+    
+    func getHeaderHeight() -> CGFloat {
+        if scrollOffset.y >= 0 {
+            return headerHeight + scrollOffset.y
+        }
+        
+        return headerHeight
     }
 }
 
