@@ -14,18 +14,10 @@ struct ImageTitleHeaderView: View {
     var body: some View {
         GeometryReader { proxy in
             ZStack(alignment: .bottom) {
-                if let uiImage = image{
-                    Image(uiImage: uiImage)
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: proxy.size.width, height: proxy.size.height)
-                }
+                OverlayedImage(image: image)
+                    .frame(width: proxy.size.width, height: proxy.size.height)
                 
-                Rectangle()
-                    .fill(Color.black.opacity(0.55))
-                
-                Text(title)
-                    .font(.title.bold())
+                HeaderTitleText(title: title)
                     .foregroundStyle(.white)
                     .padding(20)
                     .frame(width: proxy.size.width, alignment: .bottomLeading)

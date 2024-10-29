@@ -43,28 +43,23 @@ struct ScrollingItemDetailScreen<Content: View>: View {
                 }
                 .offset(y: scrollOffset.y > 0 ? 0 : scrollOffset.y)
                 
-                ScrollView(showsIndicators: false) {
-                    ZStack(alignment: .top) {
-                        ScrollViewTracker()
-                        
-                        VStack(spacing: 0) {
-                            // Spacing to offset scrollview with header height
-                            Rectangle()
-                                .fill(.clear)
-                                .frame(height: headerHeight)
-                            
-                            content()
-                        }
+                TrackerScrollView {
+                    VStack(spacing: 0) {
+                        // Spacing to offset scrollview with header height
+                        Rectangle()
+                            .fill(.clear)
+                            .frame(height: headerHeight)
+
+                        content()
                     }
-                }
-                .withTracker { offset in
+                } onOffsetChange: { offset in
                     scrollOffset = offset
                 }
                 
                 // TODO: Fix toolbar shadow opacity
                 Rectangle()
                     .fill(.blue.opacity(calculateTopbarOpacity(topbarHeight: gr.safeAreaInsets.top)))
-                    .shadow(color: .gray.opacity(0.5), radius: 1, x: 0, y: 2)
+                    .shadow(color: .gray.opacity(0.5), radius: 1, x: 0, y: 1)
                     .frame(width: .infinity, height: gr.safeAreaInsets.top)
             }
             .toolbar {
@@ -137,16 +132,7 @@ struct ScrollingItemDetailScreen<Content: View>: View {
                 headerHeight: 300.0
             ) {
                 VStack {
-                    InfoCell(title: "Type", description: "Ground, Rock")
-                    InfoCell(title: "Abilities", description: "Lightning Rod or Rock Head, Reckless (Hidden Ability)")
-                    InfoCell(title: "Gender Ratio", description: "50% male,50% female")
-                    InfoCell(title: "Catch Rate", description: "60%")
-                    InfoCell(title: "Egg Group", description: "Monster and Field")
-                    InfoCell(title: "Hatch time", description: "20 cycles")
-                    InfoCell(title: "Leveling rate", description: "Slow")
-                    InfoCell(title: "Weight", description: "Big Boi")
-                    InfoCell(title: "Color", description: "Gray")
-                    InfoCell(title: "Description", description: "Rhydon is a large, gray, bipedal Pokémon with features similar to both dinosaurs and rhinoceroses. It has narrow, red eyes and two fangs in its upper jaw. On the tip of Rhydon's snout is a cream-colored horn, which is smaller on a female than on a male.")
+    
                 }
                 .background(.white)
             }

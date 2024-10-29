@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		56D831932CD05D8B00D99834 /* HeaderTitleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D831922CD05D8B00D99834 /* HeaderTitleText.swift */; };
+		56D831972CD0618200D99834 /* OverlayedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D831962CD0618200D99834 /* OverlayedImage.swift */; };
+		56D8319C2CD066C400D99834 /* TrackerScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D8319B2CD066C400D99834 /* TrackerScrollView.swift */; };
 		56E6B6B62C964D670029EA4E /* ImageTitleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E6B6B52C964D670029EA4E /* ImageTitleHeaderView.swift */; };
 		56E6B6B82C966D120029EA4E /* ScrollingItemDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E6B6B72C966D120029EA4E /* ScrollingItemDetailScreen.swift */; };
 		56E6B6BD2C97C3750029EA4E /* ScrollViewUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E6B6BC2C97C3750029EA4E /* ScrollViewUtil.swift */; };
@@ -14,10 +17,13 @@
 		EA11FB5A2C81021000DF5103 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA11FB592C81021000DF5103 /* ContentView.swift */; };
 		EA11FB5C2C81021100DF5103 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA11FB5B2C81021100DF5103 /* Assets.xcassets */; };
 		EA11FB5F2C81021100DF5103 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA11FB5E2C81021100DF5103 /* Preview Assets.xcassets */; };
-		EA6A70E92C81FF050091262C /* YelpDetailScrollingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6A70E82C81FF050091262C /* YelpDetailScrollingScreen.swift */; };
+		EA6A70E92C81FF050091262C /* YelpsDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6A70E82C81FF050091262C /* YelpsDetailScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		56D831922CD05D8B00D99834 /* HeaderTitleText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTitleText.swift; sourceTree = "<group>"; };
+		56D831962CD0618200D99834 /* OverlayedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayedImage.swift; sourceTree = "<group>"; };
+		56D8319B2CD066C400D99834 /* TrackerScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerScrollView.swift; sourceTree = "<group>"; };
 		56E6B6B52C964D670029EA4E /* ImageTitleHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTitleHeaderView.swift; sourceTree = "<group>"; };
 		56E6B6B72C966D120029EA4E /* ScrollingItemDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollingItemDetailScreen.swift; sourceTree = "<group>"; };
 		56E6B6BC2C97C3750029EA4E /* ScrollViewUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewUtil.swift; sourceTree = "<group>"; };
@@ -29,7 +35,7 @@
 		EA11FB682C81021100DF5103 /* UIUXPlaygroundTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIUXPlaygroundTests.swift; sourceTree = "<group>"; };
 		EA11FB722C81021100DF5103 /* UIUXPlaygroundUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIUXPlaygroundUITests.swift; sourceTree = "<group>"; };
 		EA11FB742C81021100DF5103 /* UIUXPlaygroundUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIUXPlaygroundUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		EA6A70E82C81FF050091262C /* YelpDetailScrollingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpDetailScrollingScreen.swift; sourceTree = "<group>"; };
+		EA6A70E82C81FF050091262C /* YelpsDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpsDetailScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,12 +49,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		56D831982CD0650200D99834 /* Atoms */ = {
+			isa = PBXGroup;
+			children = (
+				56D831922CD05D8B00D99834 /* HeaderTitleText.swift */,
+				56D831962CD0618200D99834 /* OverlayedImage.swift */,
+				56D8319B2CD066C400D99834 /* TrackerScrollView.swift */,
+			);
+			path = Atoms;
+			sourceTree = "<group>";
+		};
+		56D831992CD0655300D99834 /* Molecules */ = {
+			isa = PBXGroup;
+			children = (
+				56E6B6B52C964D670029EA4E /* ImageTitleHeaderView.swift */,
+			);
+			path = Molecules;
+			sourceTree = "<group>";
+		};
+		56D8319A2CD0656E00D99834 /* Organisms */ = {
+			isa = PBXGroup;
+			children = (
+				56E6B6B72C966D120029EA4E /* ScrollingItemDetailScreen.swift */,
+			);
+			path = Organisms;
+			sourceTree = "<group>";
+		};
 		56E6B6B42C964BED0029EA4E /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				56D831982CD0650200D99834 /* Atoms */,
+				56D831992CD0655300D99834 /* Molecules */,
+				56D8319A2CD0656E00D99834 /* Organisms */,
 				56E6B6BB2C97C35E0029EA4E /* Utils */,
-				56E6B6B52C964D670029EA4E /* ImageTitleHeaderView.swift */,
-				56E6B6B72C966D120029EA4E /* ScrollingItemDetailScreen.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -120,7 +153,7 @@
 		EA6A70E72C81FEE00091262C /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				EA6A70E82C81FF050091262C /* YelpDetailScrollingScreen.swift */,
+				EA6A70E82C81FF050091262C /* YelpsDetailScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -195,10 +228,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA6A70E92C81FF050091262C /* YelpDetailScrollingScreen.swift in Sources */,
+				EA6A70E92C81FF050091262C /* YelpsDetailScreen.swift in Sources */,
 				56E6B6BD2C97C3750029EA4E /* ScrollViewUtil.swift in Sources */,
+				56D8319C2CD066C400D99834 /* TrackerScrollView.swift in Sources */,
 				EA11FB5A2C81021000DF5103 /* ContentView.swift in Sources */,
 				56E6B6B82C966D120029EA4E /* ScrollingItemDetailScreen.swift in Sources */,
+				56D831932CD05D8B00D99834 /* HeaderTitleText.swift in Sources */,
+				56D831972CD0618200D99834 /* OverlayedImage.swift in Sources */,
 				56E6B6B62C964D670029EA4E /* ImageTitleHeaderView.swift in Sources */,
 				EA11FB582C81021000DF5103 /* UIUXPlaygroundApp.swift in Sources */,
 			);
