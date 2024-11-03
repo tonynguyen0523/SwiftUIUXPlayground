@@ -56,52 +56,14 @@ struct ScrollingItemDetailScreen<Content: View>: View {
                     scrollOffset = offset
                 }
                 
-                // TODO: Fix toolbar shadow opacity
-                Rectangle()
-                    .fill(.blue.opacity(calculateTopbarOpacity(topbarHeight: gr.safeAreaInsets.top)))
-                    .shadow(color: .gray.opacity(0.5), radius: 1, x: 0, y: 1)
-                    .frame(width: .infinity, height: gr.safeAreaInsets.top)
+//                // TODO: Fix toolbar shadow opacity
+//                Rectangle()
+//                    .fill(.blue.opacity(calculateTopbarOpacity(topbarHeight: gr.safeAreaInsets.top)))
+//                    .shadow(color: .gray.opacity(0.5), radius: 1, x: 0, y: 1)
+//                    .frame(width: .infinity, height: gr.safeAreaInsets.top)
             }
-            .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Button(action: {
-                        // Do something
-                    }, label: {
-                        Image(systemName: "arrow.left")
-                            .foregroundStyle(.white)
-                    })
-                }
-                
-                ToolbarItem(placement: .principal) {
-                    Text(title)
-                        .font(.headline.bold())
-                        .fontDesign(.rounded)
-                        .foregroundStyle(.white)
-                        .lineLimit(1)
-                        .opacity(headerVisibleRatio <= 0.4 ? 1.0 : 0.0)
-                }
-                
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button(action: {
-                        // Do something
-                    }, label: {
-                        Image(systemName: "heart")
-                            .foregroundStyle(.white)
-                    })
-                }
-                
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button(action: {
-                        // Do something
-                    }, label: {
-                        Image(systemName: "square.and.arrow.up")
-                            .foregroundStyle(.white)
-                    })
-                }
-            }
+            .customToolbar()
             .ignoresSafeArea(edges: .vertical)
-            .toolbar(.visible, for: .navigationBar)
-            .toolbarBackground(.hidden, for: .navigationBar)
         }
     }
     
@@ -127,7 +89,7 @@ struct ScrollingItemDetailScreen<Content: View>: View {
     NavigationView {
         GeometryReader { proxy in
             ScrollingItemDetailScreen(
-                title: "Empower Excellence Employee Development Day",
+                title: "Toolbar View",
                 headerImage: UIImage(named: "rayimage"),
                 headerHeight: 300.0
             ) {

@@ -19,12 +19,12 @@ extension ScrollView {
 }
 
 enum ScrollTrackingNamespace {
-  static let namespace = "scrollView"
+    static let namespace = "scrollView"
 }
 
 struct ScrollTrackingPreferenceKey: PreferenceKey {
-  static var defaultValue: CGPoint = .zero
-  static func reduce(value: inout CGPoint, nextValue: () -> CGPoint) {}
+    static var defaultValue: CGPoint = .zero
+    static func reduce(value: inout CGPoint, nextValue: () -> CGPoint) {}
 }
 
 struct ScrollViewTracker: View {
