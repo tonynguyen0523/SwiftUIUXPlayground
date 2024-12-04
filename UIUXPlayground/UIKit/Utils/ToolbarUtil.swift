@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ToolbarModifier: ViewModifier {
+    var title: String
+    
     func body(content: Content) -> some View {
         content
             .toolbar {
@@ -20,8 +22,9 @@ struct ToolbarModifier: ViewModifier {
                     })
                 }
                 
+                // TODO: Make toolbar title opacity changable
                 ToolbarItem(placement: .principal) {
-                    Text("Toolbar Modifier")
+                    Text(title)
                         .font(.headline.bold())
                         .fontDesign(.rounded)
                         .foregroundStyle(.white)
@@ -53,7 +56,7 @@ struct ToolbarModifier: ViewModifier {
 }
 
 extension View {
-    func customToolbar() -> some View {
-        self.modifier(ToolbarModifier())
+    func customToolbar(title: String) -> some View {
+        self.modifier(ToolbarModifier(title: title))
     }
 }

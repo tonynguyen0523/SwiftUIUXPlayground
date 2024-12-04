@@ -15,6 +15,8 @@ struct FontModifier: ViewModifier {
         case bold
         case toolbar
         case title
+        case subTitleHeader
+        case subtitle
         
         func getFont() -> Font {
             switch self {
@@ -26,6 +28,10 @@ struct FontModifier: ViewModifier {
                 return .headline.bold()
             case .title:
                 return .title.bold()
+            case .subtitle:
+                return .subheadline.bold()
+            case .subTitleHeader:
+                return .title2.bold()
             }
         }
     }
@@ -52,5 +58,13 @@ extension View {
     
     public func titleFont() -> some View {
         self.modifier(FontModifier(fontType: .title))
+    }
+    
+    public func subTitleHeaderFont() -> some View {
+        self.modifier(FontModifier(fontType: .subTitleHeader))
+    }
+    
+    public func subtitleFont() -> some View {
+        self.modifier(FontModifier(fontType: .subtitle))
     }
 }

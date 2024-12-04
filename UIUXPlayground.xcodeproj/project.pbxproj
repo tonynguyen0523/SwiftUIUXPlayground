@@ -22,6 +22,13 @@
 		EA11FB5A2C81021000DF5103 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA11FB592C81021000DF5103 /* ContentView.swift */; };
 		EA11FB5C2C81021100DF5103 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA11FB5B2C81021100DF5103 /* Assets.xcassets */; };
 		EA11FB5F2C81021100DF5103 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA11FB5E2C81021100DF5103 /* Preview Assets.xcassets */; };
+		EA223B132CFF823900BB522C /* DoubleStackSubtitleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA223B122CFF823900BB522C /* DoubleStackSubtitleText.swift */; };
+		EA223B152CFF830200BB522C /* SubtitleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA223B142CFF830200BB522C /* SubtitleText.swift */; };
+		EA223B182CFF926900BB522C /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA223B172CFF926900BB522C /* RoundedButton.swift */; };
+		EA223B1A2CFFA4AF00BB522C /* HorizontalScrollingButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA223B192CFFA4AF00BB522C /* HorizontalScrollingButtons.swift */; };
+		EA223B1C2CFFAD8B00BB522C /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA223B1B2CFFAD8B00BB522C /* Dimensions.swift */; };
+		EA223B1E2CFFB5F400BB522C /* SubHeaderTitleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA223B1D2CFFB5F400BB522C /* SubHeaderTitleText.swift */; };
+		EA223B202CFFB6E900BB522C /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA223B1F2CFFB6E900BB522C /* InfoView.swift */; };
 		EA6A70E92C81FF050091262C /* YelpsDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6A70E82C81FF050091262C /* YelpsDetailScreen.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +52,13 @@
 		EA11FB682C81021100DF5103 /* UIUXPlaygroundTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIUXPlaygroundTests.swift; sourceTree = "<group>"; };
 		EA11FB722C81021100DF5103 /* UIUXPlaygroundUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIUXPlaygroundUITests.swift; sourceTree = "<group>"; };
 		EA11FB742C81021100DF5103 /* UIUXPlaygroundUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIUXPlaygroundUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		EA223B122CFF823900BB522C /* DoubleStackSubtitleText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleStackSubtitleText.swift; sourceTree = "<group>"; };
+		EA223B142CFF830200BB522C /* SubtitleText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtitleText.swift; sourceTree = "<group>"; };
+		EA223B172CFF926900BB522C /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		EA223B192CFFA4AF00BB522C /* HorizontalScrollingButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalScrollingButtons.swift; sourceTree = "<group>"; };
+		EA223B1B2CFFAD8B00BB522C /* Dimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
+		EA223B1D2CFFB5F400BB522C /* SubHeaderTitleText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubHeaderTitleText.swift; sourceTree = "<group>"; };
+		EA223B1F2CFFB6E900BB522C /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		EA6A70E82C81FF050091262C /* YelpsDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpsDetailScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -67,6 +81,9 @@
 				56D8319B2CD066C400D99834 /* TrackerScrollView.swift */,
 				56D831A12CD1B7F800D99834 /* ToolbarButton.swift */,
 				56D831A32CD1BA6300D99834 /* ToolbarText.swift */,
+				EA223B142CFF830200BB522C /* SubtitleText.swift */,
+				EA223B172CFF926900BB522C /* RoundedButton.swift */,
+				EA223B1D2CFFB5F400BB522C /* SubHeaderTitleText.swift */,
 			);
 			path = Atoms;
 			sourceTree = "<group>";
@@ -76,6 +93,9 @@
 			children = (
 				56E6B6B52C964D670029EA4E /* ImageTitleHeaderView.swift */,
 				56D831A52CD1C16100D99834 /* ToolbarView.swift */,
+				EA223B122CFF823900BB522C /* DoubleStackSubtitleText.swift */,
+				EA223B192CFFA4AF00BB522C /* HorizontalScrollingButtons.swift */,
+				EA223B1F2CFFB6E900BB522C /* InfoView.swift */,
 			);
 			path = Molecules;
 			sourceTree = "<group>";
@@ -95,6 +115,7 @@
 				56D831992CD0655300D99834 /* Molecules */,
 				56D8319A2CD0656E00D99834 /* Organisms */,
 				56E6B6BB2C97C35E0029EA4E /* Utils */,
+				EA223B1B2CFFAD8B00BB522C /* Dimensions.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -252,10 +273,17 @@
 				56E6B6B82C966D120029EA4E /* ScrollingItemDetailScreen.swift in Sources */,
 				56D831932CD05D8B00D99834 /* HeaderTitleText.swift in Sources */,
 				56D831A22CD1B7F800D99834 /* ToolbarButton.swift in Sources */,
+				EA223B1E2CFFB5F400BB522C /* SubHeaderTitleText.swift in Sources */,
 				56D8319E2CD1B44A00D99834 /* FontUtil.swift in Sources */,
+				EA223B132CFF823900BB522C /* DoubleStackSubtitleText.swift in Sources */,
+				EA223B182CFF926900BB522C /* RoundedButton.swift in Sources */,
+				EA223B202CFFB6E900BB522C /* InfoView.swift in Sources */,
 				56D831972CD0618200D99834 /* OverlayedImage.swift in Sources */,
+				EA223B1C2CFFAD8B00BB522C /* Dimensions.swift in Sources */,
 				56E6B6B62C964D670029EA4E /* ImageTitleHeaderView.swift in Sources */,
 				EA11FB582C81021000DF5103 /* UIUXPlaygroundApp.swift in Sources */,
+				EA223B152CFF830200BB522C /* SubtitleText.swift in Sources */,
+				EA223B1A2CFFA4AF00BB522C /* HorizontalScrollingButtons.swift in Sources */,
 				56D831A62CD1C16100D99834 /* ToolbarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

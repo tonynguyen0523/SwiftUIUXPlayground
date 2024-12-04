@@ -56,13 +56,13 @@ struct ScrollingItemDetailScreen<Content: View>: View {
                     scrollOffset = offset
                 }
                 
-//                // TODO: Fix toolbar shadow opacity
-//                Rectangle()
-//                    .fill(.blue.opacity(calculateTopbarOpacity(topbarHeight: gr.safeAreaInsets.top)))
-//                    .shadow(color: .gray.opacity(0.5), radius: 1, x: 0, y: 1)
-//                    .frame(width: .infinity, height: gr.safeAreaInsets.top)
+                // TODO: Fix toolbar shadow opacity
+                Rectangle()
+                    .fill(.black.opacity(calculateTopbarOpacity(topbarHeight: gr.safeAreaInsets.top)))
+                    .shadow(color: .black.opacity(0.5), radius: 1, x: 0, y: 1)
+                    .frame(width: .infinity, height: gr.safeAreaInsets.top)
             }
-            .customToolbar()
+            .customToolbar(title: self.title)
             .ignoresSafeArea(edges: .vertical)
         }
     }
@@ -89,13 +89,16 @@ struct ScrollingItemDetailScreen<Content: View>: View {
     NavigationView {
         GeometryReader { proxy in
             ScrollingItemDetailScreen(
-                title: "Toolbar View",
+                title: "Example of a really long title that may cause some issues when user creates a long title for some reason.",
                 headerImage: UIImage(named: "rayimage"),
                 headerHeight: 300.0
             ) {
                 VStack {
-    
+                    ForEach(Array(1...100), id: \.self) { index in
+                        HeaderTitleText(title: "\(index)")
+                    }
                 }
+                .padding()
                 .background(.white)
             }
         }
